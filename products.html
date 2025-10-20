@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Collection - Éclat Essence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="music.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+    <div class="container nav-content">
+        <h1 class="logo"><a href="index.html">Éclat<span>Essence</span></a></h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#story">Our Story</a></li>
+                <li><a href="index.html#collection">Collection</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+            </ul>
+        </nav>
+        <div class="cart-wrapper">
+            <div class="cart-icon"><a href="cart.html">🛒</a><span class="cart-count">0</span></div>
+        </div>
+    </div>
+</header>
+
+<!-- Hero Banner -->
+<section class="products-hero">
+    <div class="container">
+        <h1 class="hero-title">Discover Your Signature Scent</h1>
+        <p class="hero-subtitle">Handcrafted fragrances for every moment and mood</p>
+    </div>
+</section>
+
+<!-- Filter & Sort Section -->
+<section class="filter-section">
+    <div class="container">
+        <div class="filter-controls">
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all">All Products</button>
+                <button class="filter-btn" data-category="women">For Her</button>
+                <button class="filter-btn" data-category="men">For Him</button>
+                <button class="filter-btn" data-category="premium">Premium</button>
+                <button class="filter-btn" data-category="limited">Limited Edition</button>
+            </div>
+            
+            <div class="sort-controls">
+                <select id="sortSelect" class="sort-select">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="name">Name: A-Z</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Products Grid -->
+<section class="products-section">
+    <div class="container">
+        <div class="products-grid" id="productsGrid">
+            
+            <!-- Product 1 -->
+            <div class="product-card" data-category="women" data-price="19" data-name="Aurelia">
+                <div class="product-badge">Bestseller</div>
+                <div class="product-image">
+                    <img src="img/cards/card1.jpg" alt="Aurelia Perfume">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">For Her</div>
+                    <h3 class="product-name">Aurelia</h3>
+                    <p class="product-notes">Rose • Amber • Vanilla</p>
+                    <p class="product-description">A romantic and sophisticated fragrance that captures timeless elegance with notes of Bulgarian rose and warm vanilla.</p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(124 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">$19</span>
+                        <button class="add-to-cart" data-id="1" data-name="Aurelia" data-price="19">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" data-category="premium" data-price="18" data-name="Serenité">
+                <div class="product-image">
+                    <img src="img/cards/serenite.png" alt="Serenité Perfume">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">Premium</div>
+                    <h3 class="product-name">Serenité</h3>
+                    <p class="product-notes">Lavender • Cedar • Musk</p>
+                    <p class="product-description">Experience pure tranquility with this calming blend of fresh lavender and woody cedar notes.</p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(98 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">$18</span>
+                        <button class="add-to-cart" data-id="2" data-name="Serenité" data-price="18">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" data-category="men" data-price="21" data-name="Mystique">
+                <div class="product-badge limited">Limited</div>
+                <div class="product-image">
+                    <img src="https://m.media-amazon.com/images/I/71tMTCxmFYL._SX522_.jpg" alt="Mystique Perfume">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">For Him</div>
+                    <h3 class="product-name">Mystique</h3>
+                    <p class="product-notes">Oud • Patchouli • Bergamot</p>
+                    <p class="product-description">An enigmatic fragrance that reveals its secrets layer by layer with rich oud and earthy patchouli.</p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(156 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">$21</span>
+                        <button class="add-to-cart" data-id="3" data-name="Mystique" data-price="21">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card" data-category="women" data-price="17" data-name="Belle Nuit">
+                <div class="product-image">
+                    <img src="https://th.bing.com/th/id/R.db7062b5d86a785e333727fc45be8f5d?rik=9YSC%2fdZBZxuwAQ&riu=http%3a%2f%2fperfumania.com%2fcdn%2fshop%2fproducts%2fP-22.jpg%3fv%3d1679506104&ehk=dotI0fKLSomTal7tQ7Lo9UFMhe6GVRp6pe4mHsYzMe4%3d&risl=&pid=ImgRaw&r=0" alt="Belle Nuit Perfume">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">For Her</div>
+                    <h3 class="product-name">Belle Nuit</h3>
+                    <p class="product-notes">Jasmine • Sandalwood • White Tea</p>
+                    <p class="product-description">An elegant evening fragrance with delicate floral jasmine and warm sandalwood undertones.</p>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(87 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">$17</span>
+                        <button class="add-to-cart" data-id="4" data-name="Belle Nuit" data-price="17">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card" data-category="men" data-price="16" data-name="Noir Intense">
+                <div class="product-image">
+                    <img src="https://media.takealot.com/covers_images/41ee2722823842308543d0cbd75147fc/s-zoom.file" alt="Noir Intense Perfume">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">For Him</div>
+                    <h3 class="product-name">Noir Intense</h3>
+                    <p class="product-notes">Black Pepper • Leather • Vetiver</p>
+                    <p class="product-description">Bold and powerful, crafted for the modern gentleman with spicy pepper and rich leather notes.</p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(142 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">$16</span>
+                        <button class="add-to-cart" data-id="5" data-name="Noir Intense" data-price="16">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card" data-category="limited" data-price="20" data-name="Golden Hour">
+                <div class="product-badge limited">Limited Edition</div>
+                <div class="product-image">
+                    <img src="https://aerre.co/cdn/shop/files/GOLDEN_HOUR_02.jpg?v=1700519890&width=1200" alt="Golden Hour Perfume">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">Limited Edition</div>
+                    <h3 class="product-name">Golden Hour</h3>
+                    <p class="product-notes">Saffron • Honey • Tonka Bean</p>
+                    <p class="product-description">Exclusive blend capturing the magic of sunset with precious saffron and sweet honey notes.</p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(203 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">$20</span>
+                        <button class="add-to-cart" data-id="6" data-name="Golden Hour" data-price="20">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card" data-category="women" data-price="16" data-name="Rose Petals">
+                <div class="product-image">
+                    <img src="https://www.allattar.com/wp-content/uploads/2024/07/AH17.png" alt="Rose Garden Perfume">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">For Her</div>
+                    <h3 class="product-name">Rose Petals</h3>
+                    <p class="product-notes">Bulgarian Rose • Peony • Green Notes</p>
+                    <p class="product-description">Fresh and romantic, like a morning walk through blooming gardens with dewy rose petals.</p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(91 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">$16</span>
+                        <button class="add-to-cart" data-id="7" data-name="Rose Petals" data-price="16">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card" data-category="premium" data-price="22" data-name="Ocean Breeze">
+                <div class="product-image">
+                    <img src="https://i.ebayimg.com/images/g/qfMAAOSwGpxmYf56/s-l1600.jpg" alt="Ocean Breeze Perfume">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">Premium</div>
+                    <h3 class="product-name">Ocean Breeze</h3>
+                    <p class="product-notes">Sea Salt • Driftwood • Citrus</p>
+                    <p class="product-description">Refreshing aquatic fragrance inspired by coastal mornings with crisp sea salt and zesty citrus.</p>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(76 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">$22</span>
+                        <button class="add-to-cart" data-id="8" data-name="Ocean Breeze" data-price="22">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 9 -->
+            <div class="product-card" data-category="men" data-price="14" data-name="Urban Legend">
+                <div class="product-badge">New</div>
+                <div class="product-image">
+                    <img src="https://neko.hu/wp-content/uploads/2023/09/014-URBAN-LEGEND_2.jpg" alt="Urban Legend Perfume">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">For Him</div>
+                    <h3 class="product-name">Urban Legend</h3>
+                    <p class="product-notes">Coffee • Tobacco • Amber</p>
+                    <p class="product-description">Contemporary and bold, perfect for city nights with rich coffee and warm amber notes.</p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(64 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">$14</span>
+                        <button class="add-to-cart" data-id="9" data-name="Urban Legend" data-price="14">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 10 -->
+            <div class="product-card" data-category="women" data-price="17" data-name="Velvet Bloom">
+                <div class="product-badge">New</div>
+                <div class="product-image">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.JfapYqkpXEnQ_Sgpc3dfegHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Velvet Bloom Perfume">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">For Her</div>
+                    <h3 class="product-name">Velvet Bloom</h3>
+                    <p class="product-notes">Peony • Cashmere • White Musk</p>
+                    <p class="product-description">Luxurious and soft, this fragrance wraps you in a delicate embrace of blooming peonies.</p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(53 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">$17</span>
+                        <button class="add-to-cart" data-id="10" data-name="Velvet Bloom" data-price="17">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 11 -->
+            <div class="product-card" data-category="premium" data-price="23" data-name="Royal Oud">
+                <div class="product-badge limited">Limited</div>
+                <div class="product-image">
+                    <img src="https://soghaat.co.uk/wp-content/uploads/2023/10/Minister-of-Oud-Oud-Royal-Extrait-De-Parfum-100ml-Fragrance-World.jpg.webp" alt="Royal Oud Perfume">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">Premium</div>
+                    <h3 class="product-name">Royal Oud</h3>
+                    <p class="product-notes">Agarwood • Saffron • Cedar</p>
+                    <p class="product-description">Regal and sophisticated, featuring rare agarwood and precious saffron for an unforgettable presence.</p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(89 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">$23</span>
+                        <button class="add-to-cart" data-id="11" data-name="Royal Oud" data-price="23">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 12 -->
+            <div class="product-card" data-category="limited" data-price="25" data-name="Midnight Orchid">
+                <div class="product-badge limited">Limited Edition</div>
+                <div class="product-image">
+                    <img src="https://img.freepik.com/premium-photo/background-parfume-product-ad_897093-724.jpg" alt="Midnight Orchid Perfume">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">Limited Edition</div>
+                    <h3 class="product-name">Midnight Orchid</h3>
+                    <p class="product-notes">Black Orchid • Patchouli • Amber</p>
+                    <p class="product-description">Mysterious and alluring, this rare black orchid scent blooms under the moonlight.</p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(67 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">$25</span>
+                        <button class="add-to-cart" data-id="12" data-name="Midnight Orchid" data-price="25">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 13 -->
+            <div class="product-card" data-category="men" data-price="13" data-name="Tobacco Reserve">
+                <div class="product-image">
+                    <img src="https://cdn.shopify.com/s/files/1/0910/0818/products/Aramis-Aramis-Mens-Eau-de-Toilette-Spray-3.7-Best-Price-Fragrance-Parfume-FragranceOutlet.com-Details.jpg?v=1661882141&width=990" alt="Tobacco Reserve Perfume">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">For Him</div>
+                    <h3 class="product-name">Tobacco Reserve</h3>
+                    <p class="product-notes">Tobacco Leaf • Vanilla • Oak</p>
+                    <p class="product-description">Rich and warm, reminiscent of fine tobacco leaves aged in oak barrels with a hint of vanilla.</p>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(112 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">$13</span>
+                        <button class="add-to-cart" data-id="13" data-name="Tobacco Reserve" data-price="13">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 14 -->
+            <div class="product-card" data-category="women" data-price="18" data-name="Citrus Bloom">
+                <div class="product-image">
+                    <img src="https://fimgs.net/mdimg/perfume/social.87124.jpg" alt="Citrus Bloom Perfume">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">For Her</div>
+                    <h3 class="product-name">Citrus Bloom</h3>
+                    <p class="product-notes">Bergamot • Neroli • White Flowers</p>
+                    <p class="product-description">Bright and uplifting, this citrus-forward fragrance bursts with energy and floral elegance.</p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(78 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">$18</span>
+                        <button class="add-to-cart" data-id="14" data-name="Citrus Bloom" data-price="18">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 15 -->
+            <div class="product-card" data-category="premium" data-price="24" data-name="Sandalwood Royal">
+                <div class="product-badge">Bestseller</div>
+                <div class="product-image">
+                    <img src="https://cdn.shopify.com/s/files/1/0573/6241/5800/products/Samawa-Sanadalwood-Royale.jpg?v=1641204771" alt="Sandalwood Royal Perfume">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">Premium</div>
+                    <h3 class="product-name">Sandalwood Royal</h3>
+                    <p class="product-notes">Mysore Sandalwood • Amber • Spices</p>
+                    <p class="product-description">Crafted with rare Mysore sandalwood, this luxurious scent is both comforting and regal.</p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(145 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">$24</span>
+                        <button class="add-to-cart" data-id="15" data-name="Sandalwood Royal" data-price="24">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 16 -->
+            <div class="product-card" data-category="women" data-price="15" data-name="Luminous Pearl">
+                <div class="product-badge">New</div>
+                <div class="product-image">
+                    <img src="https://piimages.parfumo.de/6/4/150760_5c6750c78ec009819816d259a63cb6ec_la-perla-2021.jpg" alt="Luminous Pearl Perfume">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">For Her</div>
+                    <h3 class="product-name">Luminous Pearl</h3>
+                    <p class="product-notes">Pear • Freesia • White Amber</p>
+                    <p class="product-description">Radiant and delicate, this fragrance captures the essence of fresh pear blossoms and luminous white amber.</p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(42 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">$15</span>
+                        <button class="add-to-cart" data-id="16" data-name="Luminous Pearl" data-price="15">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 17 -->
+            <div class="product-card" data-category="men" data-price="12" data-name="Spartan Elite">
+                <div class="product-badge limited">Limited</div>
+                <div class="product-image">
+                    <img src="https://cdn.awsli.com.br/2500x2500/1172/1172229/produto/2196208379f5557d7d6.jpg" alt="Spartan Elite Perfume">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">For Him</div>
+                    <h3 class="product-name">Spartan Elite</h3>
+                    <p class="product-notes">Leather • Birch • Smoke</p>
+                    <p class="product-description">Bold and commanding, this masculine scent features rugged leather and smoky birch notes.</p>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(88 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">$12</span>
+                        <button class="add-to-cart" data-id="17" data-name="Spartan Elite" data-price="12">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 18 -->
+            <div class="product-card" data-category="premium" data-price="24" data-name="Diamond Essence">
+                <div class="product-badge">Bestseller</div>
+                <div class="product-image">
+                    <img src="https://www.cosmetify.com/images/supplementary/emporio-armani-diamonds-eau-de-parfum-1681207640-raiyovjfhw-813.jpg" alt="Diamond Essence Perfume">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">Premium</div>
+                    <h3 class="product-name">Diamond Essence</h3>
+                    <p class="product-notes">Iris • Orris • White Musk</p>
+                    <p class="product-description">Ultra-luxurious and sophisticated, featuring precious iris and orris root for a truly exceptional fragrance.</p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(134 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">$24</span>
+                        <button class="add-to-cart" data-id="18" data-name="Diamond Essence" data-price="24">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer -->
+  <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h2>Éclat<span>Essence</span></h2>
+                    <p>Luxury fragrances crafted with passion and precision. Each bottle tells a story, each scent
+                        captures a memory.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#collection">All Fragrances</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Gift Sets</a></li>
+                        <li><a href="#">Samples</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="footer-copy">© 2025 Éclat Essence. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+     <!-- Music Player -->
+<div id="musicPlayer" class="music-player">
+    <div class="music-controls">
+        <button id="playPauseBtn" class="music-btn" title="Play/Pause">
+            <i class="fas fa-play"></i>
+        </button>
+        <button id="volumeBtn" class="music-btn" title="Mute/Unmute">
+            <i class="fas fa-volume-up"></i>
+        </button>
+    </div>
+    <audio id="backgroundMusic" loop>
+        <source src="img/music/music.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="scripts.js"></script>
+<script src="product.js"></script>
+<script src="hamburger.js"></script>
+
+</body>
+<script>
+    (function() {
+    // Check if user is logged in
+    const user = localStorage.getItem('eclatUser');
+    
+    if (!user) {
+        // User not logged in, redirect to home page
+        alert('Please login to access the products page!');
+        window.location.href = 'index.html';
+    }
+})();
+</script>
+</html>

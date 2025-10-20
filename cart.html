@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Éclat Essence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="music.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+    <div class="container nav-content">
+        <h1 class="logo"><a href="index.html">Éclat<span>Essence</span></a></h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#story">Our Story</a></li>
+                <li><a href="index.html#collection">Collection</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+            </ul>
+        </nav>
+        <div class="cart-wrapper">
+            <div class="cart-icon"><a href="cart.html">🛒</a><span class="cart-count">0</span></div>
+        </div>
+    </div>
+</header>
+
+<!-- Cart Section -->
+<section class="cart-section">
+    <div class="container">
+        <h1 class="page-title">Shopping Cart</h1>
+        
+        <div class="cart-container">
+            <!-- Cart Items -->
+            <div class="cart-items-wrapper">
+                <div id="cartItems" class="cart-items">
+                    <!-- Cart items will be dynamically inserted here -->
+                </div>
+                
+                <div id="emptyCart" class="empty-cart" style="display: none;">
+                    <div class="empty-icon">🛒</div>
+                    <h2>Your Cart is Empty</h2>
+                    <p>Add some luxury fragrances to your collection</p>
+                    <a href="products.html" class="btn-primary">Browse Products</a>
+                </div>
+            </div>
+            
+            <!-- Cart Summary -->
+            <div class="cart-summary">
+                <h2>Order Summary</h2>
+                
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">₹0</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span id="shipping">₹0</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Tax (10%):</span>
+                    <span id="tax">₹0</span>
+                </div>
+                
+                <div class="summary-divider"></div>
+                
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="total">₹0</span>
+                </div>
+                
+                <button id="checkoutBtn" class="btn-checkout">Proceed to Checkout</button>
+                
+                <a href="products.html" class="continue-shopping">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer-section">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>Éclat<span>Essence</span></h2>
+                <p>Luxury fragrances crafted with passion and precision. Each bottle tells a story, each scent captures a memory.</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="#collection">All Fragrances</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Gift Sets</a></li>
+                    <li><a href="#">Samples</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <p class="footer-copy">© 2025 Éclat Essence. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- Music Player -->
+<div id="musicPlayer" class="music-player">
+    <div class="music-controls">
+        <button id="playPauseBtn" class="music-btn" title="Play/Pause">
+            <i class="fas fa-play"></i>
+        </button>
+        <button id="volumeBtn" class="music-btn" title="Mute/Unmute">
+            <i class="fas fa-volume-up"></i>
+        </button>
+    </div>
+    <audio id="backgroundMusic" loop>
+        <source src="img/music/music.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="cart.js"></script>
+<script src="hamburger.js"></script>
+
+</body>
+</html>

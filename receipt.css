@@ -1,0 +1,616 @@
+:root {
+    --bg-dark: #0d0d0d;
+    --charcoal: #2e2e2e;
+    --muted: #1a1a1a;
+    --gold: #d4af37;
+    --text: #f5f5f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-dark);
+    color: var(--text);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(13, 13, 13, 0.95);
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 1.2rem 0;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    opacity: 1;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: "Cinzel", serif;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.logo a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a.active {
+    color: var(--gold);
+}
+
+.cart-wrapper {
+    position: relative;
+}
+
+.cart-icon {
+    font-size: 1.4rem;
+    color: var(--gold);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.cart-icon:hover {
+    transform: scale(1.15);
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: var(--gold);
+    color: var(--bg-dark);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 50%;
+    min-width: 18px;
+    text-align: center;
+}
+
+/* Receipt Section */
+.receipt-section {
+    padding: 10rem 0 5rem;
+    min-height: 100vh;
+}
+
+/* Success Animation */
+.success-animation {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.checkmark-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: scaleIn 0.5s ease-out;
+}
+
+.checkmark-circle i {
+    font-size: 3rem;
+    color: var(--bg-dark);
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.success-title {
+    font-family: "Cinzel", serif;
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.success-message {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+/* Receipt Container */
+.receipt-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+}
+
+/* Receipt Card */
+.receipt-card {
+    background: var(--charcoal);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 16px;
+    padding: 3rem;
+}
+
+.receipt-header {
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.receipt-header h2 {
+    font-family: "Cinzel", serif;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+}
+
+.order-number {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.order-number span {
+    color: #aaa;
+}
+
+.order-number strong {
+    color: var(--text);
+    font-family: "Courier New", monospace;
+}
+
+/* Info Grid */
+.receipt-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.info-section h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gold);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.info-section p {
+    color: #ccc;
+    font-size: 1.05rem;
+}
+
+/* Shipping Info */
+.shipping-info {
+    background: var(--muted);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.shipping-info h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gold);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.shipping-info p {
+    color: #ccc;
+    line-height: 1.8;
+}
+
+/* Order Items */
+.order-items {
+    margin-bottom: 2rem;
+}
+
+.order-items h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gold);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: var(--muted);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.item-details h4 {
+    color: var(--text);
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.item-details p {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.item-total {
+    font-family: "Cinzel", serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    font-weight: 700;
+}
+
+/* Order Summary */
+.order-summary {
+    background: var(--muted);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+}
+
+.summary-row span:first-child {
+    color: #ccc;
+}
+
+.summary-row span:last-child {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.summary-divider {
+    height: 1px;
+    background: rgba(212, 175, 55, 0.3);
+    margin: 1.5rem 0;
+}
+
+.summary-row.total {
+    font-size: 1.6rem;
+    font-family: "Cinzel", serif;
+    color: var(--gold);
+    font-weight: 700;
+}
+
+/* Receipt Actions */
+.receipt-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-print,
+.btn-download {
+    flex: 1;
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--text);
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-print:hover,
+.btn-download:hover {
+    background: var(--gold);
+    color: var(--bg-dark);
+    transform: translateY(-2px);
+}
+
+/* Next Steps */
+.next-steps {
+    background: var(--charcoal);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 16px;
+    padding: 2.5rem;
+    height: fit-content;
+}
+
+.next-steps h3 {
+    font-family: "Cinzel", serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 2rem;
+}
+
+.step-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.step-item:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.step-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.step-content h4 {
+    color: var(--text);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.step-content p {
+    color: #aaa;
+    line-height: 1.6;
+}
+
+.step-content span {
+    color: var(--gold);
+    font-weight: 600;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-continue,
+.btn-home {
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-continue {
+    background: var(--gold);
+    color: var(--bg-dark);
+}
+
+.btn-continue:hover {
+    background: #c9a745;
+    transform: translateY(-2px);
+}
+
+.btn-home {
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--text);
+}
+
+.btn-home:hover {
+    background: var(--gold);
+    color: var(--bg-dark);
+}
+
+/* Footer */
+.footer-section {
+    background: #0a0a0a;
+    padding: 5rem 0 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+    text-align: left;
+}
+
+.footer-brand h2 {
+    font-family: "Cinzel", serif;
+    font-size: 1.8rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.footer-brand span {
+    color: var(--gold);
+}
+
+.footer-brand p {
+    color: #aaa;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.footer-links h3 {
+    font-family: "Cinzel", serif;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    line-height: 2.2;
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+    padding-left: 5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-link {
+    color: var(--text);
+    font-size: 1.6rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    color: var(--gold);
+    transform: translateY(-3px);
+}
+
+.footer-copy {
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+    padding-top: 2rem;
+    color: #888;
+    font-size: 0.9rem;
+}
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.social-link {
+  color: #d4af37;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #d4af37, 0 0 20px #d4af37;
+  transform: scale(1.1);
+}
+
+
+/* Print Styles */
+@media print {
+    .navbar,
+    .footer-section,
+    .next-steps,
+    .receipt-actions {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .receipt-card {
+        border: 2px solid #000;
+    }
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .receipt-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .receipt-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .success-title {
+        font-size: 2.2rem;
+    }
+    
+    .receipt-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .receipt-actions {
+        flex-direction: column;
+    }
+}

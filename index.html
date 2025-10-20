@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éclat Essence - Luxury Perfume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="music.css">
+        <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <h1 class="logo">Éclat<span>Essence</span></h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#collection">Collection</a></li>
+                    <li><a href="#" id="productsLink">Products</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                </ul>
+            </nav>
+          <div class="cart-wrapper">
+    <div class="auth-section">
+        
+        <div class="cart-icon">
+            <a href="#" id="cartLink">🛒</a>
+            <span class="cart-count">0</span>
+        </div>
+
+        <div id="authButtons" class="auth-buttons">
+    <button class="auth-nav-btn" id="loginBtn">
+      <i class="fas fa-user"></i><!-- Login Icon -->
+    </button>
+    <button class="auth-nav-btn" id="signupBtn">
+        <i class="fas fa-user-plus"></i> <!-- Sign Up Icon -->
+    </button>
+</div>
+
+<div id="userInfo" class="user-info" style="display: none;">
+    <span class="user-name" id="userName"></span>
+    <button class="logout-btn" id="logoutBtn">
+        <i class="fas fa-sign-out-alt"></i> <!-- Logout Icon -->
+    </button>
+</div>
+
+
+    </div>
+</div>
+
+        </div>
+    </header>
+
+    <!-- Login Modal -->
+    <div class="auth-modal" id="loginModal">
+        <div class="auth-container">
+            <button class="auth-close" id="closeLogin">&times;</button>
+            <h2 class="auth-title">Welcome Back</h2>
+            <form class="auth-form" id="loginForm">
+                <div class="auth-input-group">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" required placeholder="your@email.com">
+                </div>
+                <div class="auth-input-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" required placeholder="Enter your password">
+                </div>
+                <button type="submit" class="auth-btn">Login</button>
+            </form>
+            <div class="auth-switch">
+                Don't have an account? <a id="switchToSignup">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="auth-modal" id="signupModal">
+        <div class="auth-container">
+            <button class="auth-close" id="closeSignup">&times;</button>
+            <h2 class="auth-title">Create Account</h2>
+            <form class="auth-form" id="signupForm">
+                <div class="auth-input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="signupName" required placeholder="John Doe">
+                </div>
+                <div class="auth-input-group">
+                    <label>Email</label>
+                    <input type="email" id="signupEmail" required placeholder="your@email.com">
+                </div>
+                <div class="auth-input-group">
+                    <label>Password</label>
+                    <input type="password" id="signupPassword" required placeholder="Create a password">
+                </div>
+                <button type="submit" class="auth-btn">Sign Up</button>
+            </form>
+            <div class="auth-switch">
+                Already have an account? <a id="switchToLogin">Login</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content container">
+            <div class="hero-text">
+                <h1>Where Memories Meet Luxury</h1>
+                <p>Discover our signature collection of handcrafted fragrances, each bottle a masterpiece designed to
+                    capture life's most precious moments.</p>
+                <a href="#collection" class="btn-primary">Explore Collection</a>
+            </div>
+            <div class="hero-image">
+                <img src="img/perfume.png" alt="Luxury Perfume Bottle" class="hero-bottle">
+            </div>
+        </div>
+    </section>
+
+    <!-- Fullscreen Video Ad Section -->
+    <section id="video-ad" class="video-ad-section">
+        <video autoplay muted loop playsinline class="ad-video">
+            <source src="img/vid/video1sec.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay">
+            <h2 class="video-title">"Every Drop Tells a Story"</h2>
+            <p class="video-tagline">An experience beyond fragrance – Éclat Essence.</p>
+        </div>
+    </section>
+
+
+    <!-- Story Section -->
+    <section id="story" class="story-section">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <p class="section-subtitle">Crafted with passion, bottled with precision</p>
+
+            <div class="story-grid">
+                <div class="story-card">
+                    <div class="story-icon">🌸</div>
+                    <h3>Artisan Crafted</h3>
+                    <p>Every fragrance is meticulously crafted by master perfumers with decades of experience in haute
+                        parfumerie.</p>
+                </div>
+                <div class="story-card">
+                    <div class="story-icon">✨</div>
+                    <h3>Premium Ingredients</h3>
+                    <p>We source only the finest natural essences from around the world, ensuring exceptional quality in
+                        every bottle.</p>
+                </div>
+                <div class="story-card">
+                    <div class="story-icon">🎨</div>
+                    <h3>Timeless Elegance</h3>
+                    <p>Our designs blend modern sophistication with classic beauty, creating pieces that transcend
+                        trends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection Section -->
+    <section id="collection" class="collection-section">
+        <div class="container">
+            <h2 class="section-title">Signature Collection</h2>
+            <p class="section-subtitle">Discover fragrances that tell your story</p>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="img/cards/card1.jpg" alt="Aurelia Perfume" class="product-img">
+                    <h3>Aurelia</h3>
+                    <p class="product-notes">Rose, Amber, Vanilla</p>
+                    <p class="product-description">A romantic blend that captures the essence of timeless elegance and
+                        sophistication.</p>
+                    <p class="product-price">$19</p>
+                    <button class="btn-secondary">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://cdn.pixabay.com/photo/2023/06/01/06/21/perfume-8032808_1280.jpg"
+                        alt="Serenité Perfume" class="product-img">
+                    <h3>Serenité</h3>
+                    <p class="product-notes">Lavender, Cedar, Musk</p>
+                    <p class="product-description">Experience tranquility with this calming blend of fresh and woody
+                        notes.</p>
+                    <p class="product-price">$18</p>
+                    <button class="btn-secondary">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/71tMTCxmFYL._SX522_.jpg" alt="Mystique Perfume"
+                        class="product-img">
+                    <h3>Mystique</h3>
+                    <p class="product-notes">Oud, Patchouli, Bergamot</p>
+                    <p class="product-description">An enigmatic fragrance that reveals its secrets layer by layer.</p>
+                    <p class="product-price price">$21</p>
+                    <button class="btn-secondary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <h2 class="section-title">The Éclat Experience</h2>
+            <p class="section-subtitle">Choose your emotion, discover your scent</p>
+
+            <div class="experience-container">
+                <div class="experience-visual">
+                    <canvas id="experienceCanvas"></canvas>
+                    <img src="img/perfume1.png" alt="Interactive Perfume" class="experience-bottle">
+                </div>
+
+                <div class="experience-text">
+                    <h3>Find Your Signature Scent</h3>
+                    <p>Every fragrance tells a story. Let us guide you to discover the perfect scent that captures your
+                        essence and complements your personality.</p>
+                    <p>Select an emotion below to experience how our fragrances transform with mood and moment.</p>
+
+                    <div class="scent-selector">
+                        <button class="scent-btn active" data-emotion="joy">Joy</button>
+                        <button class="scent-btn" data-emotion="calm">Serenity</button>
+                        <button class="scent-btn" data-emotion="passion">Passion</button>
+                        <button class="scent-btn" data-emotion="mystery">Mystery</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Perfume Shorts Section -->
+    <section id="custom-videos" class="custom-videos-section">
+        <div class="container">
+            <h2 class="section-title">Your Scent, Your Story</h2>
+            <p class="section-subtitle">Explore personalized creations by our perfumers</p>
+
+            <div class="video-grid">
+                <div class="video-card">
+                    <video src="img/vid/cus3.mp4" autoplay muted loop></video>
+                    <p>"For the Dreamer"</p>
+                </div>
+                <div class="video-card">
+                    <video src="img/vid/cus2.mp4" autoplay muted loop></video>
+                    <p>"Midnight Passion"</p>
+                </div>
+                <div class="video-card">
+                    <video src="img/vid/cus1.mp4" autoplay muted loop></video>
+                    <p>"Serenity in Motion"</p>
+                </div>
+                <div class="video-card">
+                    <video src="img/vid/cus4.mp4" autoplay muted loop></video>
+                    <p>"Golden Hour Essence"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Aurelia has become my signature scent. The complexity and longevity are
+                        unmatched. Worth every penny!"</p>
+                    <p class="testimonial-author">– Sophie M.</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The quality and craftsmanship are evident in every detail. Éclat
+                        Essence has redefined luxury fragrance for me."</p>
+                    <p class="testimonial-author">– James R.</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"I've received countless compliments. The bottle design is stunning, and
+                        the fragrance is simply divine."</p>
+                    <p class="testimonial-author">– Isabella L.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <h2>Join Our Exclusive Circle</h2>
+            <p>Be the first to discover new fragrances and receive special offers</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Music Player -->
+    <div id="musicPlayer" class="music-player">
+        <div class="music-controls">
+            <button id="playPauseBtn" class="music-btn" title="Play/Pause">
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="volumeBtn" class="music-btn" title="Mute/Unmute">
+                <i class="fas fa-volume-up"></i>
+            </button>
+        </div>
+        <audio id="backgroundMusic" loop>
+            <source src="img/music/music.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h2>Éclat<span>Essence</span></h2>
+                    <p>Luxury fragrances crafted with passion and precision. Each bottle tells a story, each scent
+                        captures a memory.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#collection">All Fragrances</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Gift Sets</a></li>
+                        <li><a href="#">Samples</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="footer-copy">© 2025 Éclat Essence. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="scripts.js"></script>
+    <script src="index.js"></script>
+    <script src="hamburger.js"></script>
+
+</body>
+
+</html>
