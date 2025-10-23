@@ -11,6 +11,7 @@ function initHomePage() {
         duration: 1.2, 
         ease: "power3.out", 
         delay: 0.3 
+        
     });
 
     gsap.from(".hero-text p", { 
@@ -46,6 +47,7 @@ function initHomePage() {
             duration: 0.8,
             delay: index * 0.2,
             ease: "power2.out",
+            yoyo:true,
             scrollTrigger: {
                 trigger: card,
                 start: "top 85%",
@@ -75,19 +77,42 @@ function initHomePage() {
         gsap.to(card, {
             opacity: 1,
             y: 0,
-            duration: 0.8,
+            duration: 2,
             delay: index * 0.2,
             ease: "power2.out",
             scrollTrigger: {
                 trigger: card,
                 start: "top 85%",
-                toggleActions: "play none none none"
+                toggleActions: "play none none none",
+                  scrub: 1.5
+
             }
         });
     });
 
     // Experience section - Particle Canvas
     initExperienceCanvas();
+   gsap.registerPlugin(ScrollTrigger);
+
+// Animate all inner elements of experience section
+gsap.from(".experience-section .container > *", {
+  opacity: 0,           // start invisible
+  y: 50,                // start slightly below
+  duration: 2,
+  ease: "power3.out",
+  stagger: 0.3,         // stagger each child element
+  scrollTrigger: {
+    trigger: ".experience-section",
+    scroller: "body",
+    start: "top 70%",   // start when section hits 70% of viewport
+    end: "top 40%",
+    scrub: 1.5,         // smooth scroll-linked animation
+  }
+});
+
+
+
+
 
     // Parallax effect for hero bottle
     window.addEventListener("scroll", () => {

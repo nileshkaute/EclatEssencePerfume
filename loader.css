@@ -1,0 +1,445 @@
+/* ==================== PREMIUM PERFUME LOADER ==================== */
+
+/* Main loader container */
+#perfume-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #1a1a1a 0%, #0d0d0d 50%, #000000 100%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  font-family: "Cinzel", serif;
+}
+
+/* Animated mist/smoke effect */
+#perfume-loader::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 50%, rgba(212,175,55,0.08) 0%, transparent 50%),
+              radial-gradient(circle at 70% 50%, rgba(255,255,255,0.05) 0%, transparent 50%);
+  animation: mist 15s infinite ease-in-out;
+  filter: blur(60px);
+}
+
+#perfume-loader::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 30%, rgba(212,175,55,0.1) 0%, transparent 40%);
+  animation: mist 20s infinite ease-in-out reverse;
+  filter: blur(80px);
+}
+
+@keyframes mist {
+  0%, 100% { 
+    transform: translate(0%, 0%) rotate(0deg) scale(1); 
+    opacity: 0.3;
+  }
+  33% { 
+    transform: translate(5%, 10%) rotate(120deg) scale(1.1); 
+    opacity: 0.5;
+  }
+  66% { 
+    transform: translate(-5%, -10%) rotate(240deg) scale(0.9); 
+    opacity: 0.4;
+  }
+}
+
+/* Floating particles */
+.loader-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(212, 175, 55, 0.4);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+  animation: float 8s infinite ease-in-out;
+}
+
+.particle:nth-child(1) {
+  left: 10%;
+  bottom: -10%;
+  animation-delay: 0s;
+  animation-duration: 10s;
+}
+
+.particle:nth-child(2) {
+  left: 30%;
+  bottom: -10%;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+.particle:nth-child(3) {
+  left: 50%;
+  bottom: -10%;
+  animation-delay: 4s;
+  animation-duration: 14s;
+}
+
+.particle:nth-child(4) {
+  left: 70%;
+  bottom: -10%;
+  animation-delay: 1s;
+  animation-duration: 11s;
+}
+
+.particle:nth-child(5) {
+  left: 90%;
+  bottom: -10%;
+  animation-delay: 3s;
+  animation-duration: 13s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-50vh) translateX(20px) scale(1);
+  }
+  100% {
+    transform: translateY(-100vh) translateX(-20px) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* Loader content */
+.loader-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Bottle container */
+.bottle-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.perfume-bottle {
+  width: 150px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 10px 30px rgba(212, 175, 55, 0.3));
+  position: relative;
+  z-index: 2;
+}
+
+/* Bottle glow effect */
+.bottle-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(212,175,55,0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(30px);
+  animation: pulse-glow 3s infinite ease-in-out;
+  z-index: 1;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+/* Shimmer light on bottle */
+.shimmer-light {
+  animation: shimmer-move 2s infinite ease-in-out;
+}
+
+@keyframes shimmer-move {
+  0%, 100% {
+    opacity: 0.2;
+    cy: 90;
+  }
+  50% {
+    opacity: 0.4;
+    cy: 120;
+  }
+}
+
+/* Brand title */
+.loader-title {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin: 1.5rem 0 0.5rem;
+  color: #f5f5f5;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.title-eclat {
+  display: inline-block;
+  background: linear-gradient(135deg, #f4d03f 0%, #d4af37 50%, #c9a745 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+  margin-right: 0.5rem;
+}
+
+.title-essence {
+  display: inline-block;
+  color: #d4af37;
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* Tagline */
+.loader-tagline {
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: #aaa;
+  margin: 0.5rem 0 2rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Loading progress bar */
+.loading-progress {
+  width: 200px;
+  height: 2px;
+  background: rgba(212, 175, 55, 0.2);
+  border-radius: 2px;
+  margin: 1.5rem auto 1rem;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #d4af37, #f4d03f, #d4af37);
+  background-size: 200% 100%;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+  animation: progress-shimmer 1.5s infinite;
+}
+
+@keyframes progress-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Loading text */
+.loading-text {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: #888;
+  font-family: "Inter", sans-serif;
+  opacity: 0;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+/* Tablet - 768px */
+@media (max-width: 768px) {
+  .perfume-bottle {
+    width: 130px;
+    height: 170px;
+  }
+  
+  .bottle-glow {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .loader-title {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+  
+  .loader-tagline {
+    font-size: 1rem;
+  }
+  
+  .loading-progress {
+    width: 180px;
+  }
+}
+
+/* Mobile - 480px */
+@media (max-width: 480px) {
+  .loader-content {
+    padding: 1.5rem;
+  }
+  
+  .perfume-bottle {
+    width: 110px;
+    height: 150px;
+  }
+  
+  .bottle-glow {
+    width: 130px;
+    height: 130px;
+  }
+  
+  .loader-title {
+    font-size: 2rem;
+    letter-spacing: 1.5px;
+    margin: 1rem 0 0.5rem;
+  }
+  
+  .title-eclat {
+    margin-right: 0.3rem;
+  }
+  
+  .loader-tagline {
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    margin: 0.5rem 0 1.5rem;
+  }
+  
+  .loading-progress {
+    width: 160px;
+  }
+  
+  .loading-text {
+    font-size: 0.8rem;
+  }
+  
+  .particle {
+    width: 3px;
+    height: 3px;
+  }
+}
+
+/* Small Mobile - 350px */
+@media (max-width: 350px) {
+  .loader-content {
+    padding: 1rem;
+  }
+  
+  .perfume-bottle {
+    width: 90px;
+    height: 130px;
+  }
+  
+  .bottle-glow {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .loader-title {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    margin: 0.8rem 0 0.3rem;
+  }
+  
+  .title-eclat,
+  .title-essence {
+    display: block;
+    margin: 0;
+  }
+  
+  .title-eclat {
+    margin-bottom: 0.2rem;
+  }
+  
+  .loader-tagline {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin: 0.3rem 0 1rem;
+  }
+  
+  .loading-progress {
+    width: 140px;
+    margin: 1rem auto 0.8rem;
+  }
+  
+  .loading-text {
+    font-size: 0.75rem;
+  }
+  
+  .particle {
+    width: 2px;
+    height: 2px;
+  }
+}
+
+/* Landscape orientation fix */
+@media (max-height: 600px) and (orientation: landscape) {
+  .loader-content {
+    padding: 1rem;
+  }
+  
+  .perfume-bottle {
+    width: 80px;
+    height: 110px;
+  }
+  
+  .bottle-container {
+    margin-bottom: 1rem;
+  }
+  
+  .loader-title {
+    font-size: 1.8rem;
+    margin: 0.5rem 0 0.3rem;
+  }
+  
+  .loader-tagline {
+    font-size: 0.85rem;
+    margin: 0.3rem 0 1rem;
+  }
+  
+  .loading-progress {
+    margin: 0.8rem auto 0.5rem;
+  }
+}
+
+/* ==================== FADE OUT ANIMATION ==================== */
+#perfume-loader.fade-out {
+  animation: fadeOut 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
