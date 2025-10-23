@@ -48,9 +48,11 @@ function initHomePage() {
             delay: index * 0.2,
             ease: "power2.out",
             yoyo:true,
+           
             scrollTrigger: {
                 trigger: card,
                 start: "top 85%",
+                  scrub:2,
                 toggleActions: "play none none none"
             }
         });
@@ -64,9 +66,11 @@ function initHomePage() {
             duration: 0.9,
             delay: index * 0.15,
             ease: "back.out(1.7)",
+            
             scrollTrigger: {
                 trigger: card,
                 start: "top 85%",
+                  scrub:2,
                 toggleActions: "play none none none"
             }
         });
@@ -80,11 +84,13 @@ function initHomePage() {
             duration: 2,
             delay: index * 0.2,
             ease: "power2.out",
+            
             scrollTrigger: {
                 trigger: card,
                 start: "top 85%",
+                  scrub:2,
                 toggleActions: "play none none none",
-                  scrub: 1.5
+                 
 
             }
         });
@@ -122,6 +128,7 @@ gsap.from(".experience-section .container > *", {
             gsap.to(heroBottle, {
                 y: scrolled * 0.3,
                 duration: 0.5,
+                
                 ease: "power1.out"
             });
         }
@@ -165,6 +172,7 @@ gsap.from(".experience-section .container > *", {
                                 duration: 0.3,
                                 yoyo: true,
                                 repeat: 1,
+                                
                                 ease: "elastic.out(1, 0.3)"
                             });
                         }
@@ -183,9 +191,11 @@ gsap.from(".experience-section .container > *", {
             y: 80,
             duration: 1,
             delay: i * 0.2,
+           
             scrollTrigger: {
                 trigger: card,
                 start: "top 85%",
+                  scrub:2,
             },
         });
     });
@@ -199,6 +209,7 @@ gsap.from(".experience-section .container > *", {
         scrollTrigger: {
             trigger: ".footer-section",
             start: "top 80%",
+              
         }
     });
     
@@ -241,7 +252,8 @@ gsap.from(".experience-section .container > *", {
                     scale: 0.95,
                     duration: 0.1,
                     yoyo: true,
-                    repeat: 1
+                    repeat: 1,
+                    scrub:2,
                 });
             }
         });

@@ -75,32 +75,206 @@
     }
 }
 
-/* Tablet & Small Desktop - 1024px */
-@media (max-width: 1024px) {
-    .container {
-        width: 95%;
+/* ==================== HAMBURGER MENU STYLES ==================== */
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1000;
+}
+
+.hamburger-menu:hover {
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateY(-1px);
+}
+
+.hamburger-line {
+    width: 20px;
+    height: 2px;
+    background: var(--gold);
+    margin: 2px 0;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Hamburger active state */
+.hamburger-menu.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Body lock when menu is open */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* ==================== HAMBURGER FOR 912px, 853px, 820px ==================== */
+
+@media (max-width: 912px) {
+    .hamburger-menu {
+        display: flex !important;
+        margin-left: 0.8rem;
     }
     
-    .hero-content,
-    .experience-container {
-        gap: 3rem;
+    .nav-links {
+        display: none !important;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(13, 13, 13, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 2rem;
+        border-bottom: 2px solid var(--gold);
+        z-index: 999;
     }
     
-    .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
+    .nav-links.active {
+        display: flex !important;
     }
     
-    .cart-container,
-    .checkout-container,
-    .receipt-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    .nav-links li {
+        margin: 1rem 0;
+        text-align: center;
     }
     
-    .cart-summary,
-    .order-summary {
-        position: static;
+    .nav-links a {
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+        display: block;
+    }
+    
+    .nav-links a:hover {
+        color: var(--gold);
+    }
+    
+    .nav-links a.active {
+        color: var(--gold);
+        font-weight: 600;
+    }
+    
+    body.menu-open {
+        overflow: hidden;
+    }
+    
+    /* Hero Section - CENTER TEXT */
+    .hero-text {
+        text-align: center;
+    }
+    
+    .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 853px) {
+    .hamburger-menu {
+        display: flex !important;
+        margin-left: 0.6rem;
+        width: 42px;
+        height: 42px;
+    }
+    
+    .hamburger-line {
+        width: 18px;
+        height: 2px;
+    }
+    
+    .nav-links {
+        display: none !important;
+        top: 75px;
+        padding: 1.8rem;
+    }
+    
+    .nav-links.active {
+        display: flex !important;
+    }
+    
+    .nav-links li {
+        margin: 0.8rem 0;
+    }
+    
+    .nav-links a {
+        font-size: 1.05rem;
+    }
+    
+    /* Hero Section - CENTER TEXT */
+    .hero-text {
+        text-align: center;
+    }
+    
+    .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 820px) {
+    .hamburger-menu {
+        display: flex !important;
+        margin-left: 0.5rem;
+        width: 40px;
+        height: 40px;
+        padding: 0.4rem;
+    }
+    
+    .hamburger-line {
+        width: 16px;
+        height: 1.5px;
+    }
+    
+    .nav-links {
+        display: none !important;
+        top: 70px;
+        padding: 1.5rem;
+    }
+    
+    .nav-links.active {
+        display: flex !important;
+    }
+    
+    .nav-links li {
+        margin: 0.7rem 0;
+    }
+    
+    .nav-links a {
+        font-size: 1rem;
+        padding: 0.4rem 0;
+    }
+    
+    /* Hero Section - CENTER TEXT */
+    .hero-text {
+        text-align: center;
+    }
+    
+    .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -134,9 +308,31 @@
         font-size: 1.1rem;
         padding: 0.5rem 0;
         display: block;
+        transition: color 0.3s ease;
     }
     
-    /* Hero Section */
+    .nav-links a:hover {
+        color: var(--gold);
+    }
+    
+    .nav-links a.active {
+        color: var(--gold);
+        font-weight: 600;
+    }
+    
+    /* Show hamburger menu on mobile */
+    .hamburger-menu {
+        display: flex;
+        flex-shrink: 0;
+        margin-left: 0.5rem;
+       
+    }
+    
+    /* Hero Section - CENTER TEXT */
+    .hero-text {
+        text-align: center;
+    }
+    
     .hero-text h1 {
         font-size: 2.5rem;
         line-height: 1.2;
@@ -144,6 +340,8 @@
     
     .hero-text p {
         font-size: 1.1rem;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .hero-content {
@@ -349,6 +547,35 @@
     }
 }
 
+/* Tablet & Small Desktop - 1024px */
+@media (max-width: 1024px) {
+    .container {
+        width: 95%;
+    }
+    
+    .hero-content,
+    .experience-container {
+        gap: 3rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+    
+    .cart-container,
+    .checkout-container,
+    .receipt-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .cart-summary,
+    .order-summary {
+        position: static;
+    }
+}
+
 /* Mobile - 480px */
 @media (max-width: 480px) {
     .navbar {
@@ -413,7 +640,6 @@
         font-size: 0.7rem;
         border-width: 1px;
     }
-}
     
     .hero-text p {
         font-size: 1rem;
@@ -551,7 +777,7 @@
         padding: 0.6rem 1.2rem;
         font-size: 0.85rem;
     }
-
+}
 
 /* Small Mobile - 450px */
 @media (max-width: 450px) {
@@ -601,6 +827,19 @@
         min-width: 14px;
         top: -5px;
         right: -6px;
+    }
+    
+    /* Hamburger menu adjustments for small screens */
+    .hamburger-menu {
+        width: 40px;
+        height: 40px;
+        padding: 0.4rem;
+    }
+    
+    .hamburger-line {
+        width: 18px;
+        height: 2px;
+        margin: 1.5px 0;
     }
     
     /* Auth Section - Ultra Compact */
@@ -914,6 +1153,20 @@
         min-width: 12px;
         top: -4px;
         right: -5px;
+    }
+    
+    /* Hamburger menu ultra-small adjustments */
+    .hamburger-menu {
+        width: 38px;
+        height: 38px;
+        padding: 0.3rem;
+        margin-left: 0.3rem;
+    }
+    
+    .hamburger-line {
+        width: 16px;
+        height: 1.5px;
+        margin: 1px 0;
     }
     
     /* Auth Section - Absolute Minimum */
@@ -1362,6 +1615,12 @@
         align-items: center;
         justify-content: center;
     }
+    
+    /* Hamburger menu touch optimization */
+    .hamburger-menu {
+        min-width: 44px;
+        min-height: 44px;
+    }
 }
 
 /* ==================== ACCESSIBILITY MODES ==================== */
@@ -1392,6 +1651,12 @@
     select {
         border: 2px solid var(--gold);
     }
+    
+    /* Hamburger menu high contrast */
+    .hamburger-line {
+        background: var(--gold);
+        height: 3px;
+    }
 }
 
 /* Reduced Motion */
@@ -1410,6 +1675,16 @@
     .testimonial-card {
         opacity: 1 !important;
         transform: none !important;
+    }
+    
+    /* Hamburger menu reduced motion */
+    .hamburger-line {
+        transition: none;
+    }
+    
+    .hamburger-menu.active .hamburger-line {
+        transform: none;
+        opacity: 1;
     }
 }
 
@@ -1430,6 +1705,12 @@
     
     .experience-visual {
         height: 300px;
+    }
+    
+    /* Adjust nav-links for landscape */
+    .nav-links {
+        max-height: 70vh;
+        overflow-y: auto;
     }
 }
 
@@ -1455,5 +1736,10 @@
     .order-summary {
         border: 2px solid #000;
         page-break-inside: avoid;
+    }
+    
+    /* Hide hamburger in print */
+    .hamburger-menu {
+        display: none !important;
     }
 }

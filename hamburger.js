@@ -9,8 +9,10 @@ const HamburgerMenu = {
         // Check if hamburger already exists
         if (document.querySelector('.hamburger-menu')) return;
         
-        const hamburger = document.createElement('div');
+        const hamburger = document.createElement('button');
         hamburger.className = 'hamburger-menu';
+        hamburger.setAttribute('aria-label', 'Toggle navigation menu');
+        hamburger.setAttribute('aria-expanded', 'false');
         hamburger.innerHTML = `
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
@@ -30,7 +32,10 @@ const HamburgerMenu = {
             const navLinks = document.querySelector('.nav-links');
             
             if (hamburger) {
+                e.preventDefault();
+                e.stopPropagation();
                 this.toggleMenu();
+                return;
             }
             
             // Close menu when clicking on nav links
@@ -38,6 +43,7 @@ const HamburgerMenu = {
                 const navLink = e.target.closest('.nav-links a');
                 if (navLink) {
                     this.closeMenu();
+                    return;
                 }
             }
             
@@ -56,35 +62,64 @@ const HamburgerMenu = {
             }
         });
         
-        // Handle window resize
+        // Handle window resize - Close menu when going to desktop view
+        let resizeTimer;
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                this.closeMenu();
-            }
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                if (window.innerWidth > 912) {
+                    this.closeMenu();
+                    // Hide hamburger on desktop
+                    const hamburger = document.querySelector('.hamburger-menu');
+                    if (hamburger) {
+                        hamburger.style.display = 'none';
+                    }
+                } else {
+                    // Show hamburger on mobile/tablet
+                    const hamburger = document.querySelector('.hamburger-menu');
+                    if (hamburger) {
+                        hamburger.style.display = 'flex';
+                    }
+                }
+            }, 100);
         });
     },
     
     toggleMenu() {
         const hamburger = document.querySelector('.hamburger-menu');
         const navLinks = document.querySelector('.nav-links');
+        const body = document.body;
         
         if (hamburger && navLinks) {
+            const isOpening = !hamburger.classList.contains('active');
+            
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
             
-            // Toggle body scroll
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            // Toggle body scroll and class
+            if (isOpening) {
+                body.style.overflow = 'hidden';
+                body.classList.add('menu-open');
+                hamburger.setAttribute('aria-expanded', 'true');
+            } else {
+                body.style.overflow = '';
+                body.classList.remove('menu-open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
         }
     },
     
     closeMenu() {
         const hamburger = document.querySelector('.hamburger-menu');
         const navLinks = document.querySelector('.nav-links');
+        const body = document.body;
         
         if (hamburger && navLinks) {
             hamburger.classList.remove('active');
             navLinks.classList.remove('active');
-            document.body.style.overflow = '';
+            body.style.overflow = '';
+            body.classList.remove('menu-open');
+            hamburger.setAttribute('aria-expanded', 'false');
         }
     }
 };
@@ -94,15 +129,15 @@ const EnhancedNavigation = {
     init() {
         this.setupMobileNav();
         this.enhanceCurrentPage();
+        this.setupSmoothScroll();
     },
     
     setupMobileNav() {
-        // Clone desktop nav for mobile
-        const desktopNav = document.querySelector('.nav-links');
-        if (!desktopNav) return;
-        
         // Ensure nav has proper structure for mobile
-        desktopNav.classList.add('mobile-ready');
+        const desktopNav = document.querySelector('.nav-links');
+        if (desktopNav) {
+            desktopNav.classList.add('mobile-ready');
+        }
     },
     
     enhanceCurrentPage() {
@@ -114,9 +149,31 @@ const EnhancedNavigation = {
             const href = link.getAttribute('href');
             if (href === currentPage || 
                 (currentPage === '' && href === 'index.html') ||
-                (currentPage.includes(href.replace('.html', '')) && href !== '#')) {
+                (currentPage.includes(href.replace('.html', '')) && href !== '#' && href !== '')) {
                 link.classList.add('active');
             }
+        });
+    },
+    
+    setupSmoothScroll() {
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close menu after clicking anchor link
+                    HamburgerMenu.closeMenu();
+                }
+            });
         });
     }
 };
@@ -129,14 +186,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Enhance navigation
     EnhancedNavigation.init();
     
-    // Update existing Navigation module to work with hamburger
-    if (window.Navigation) {
-        const originalSetupActiveLinks = Navigation.setupActiveLinks;
-        Navigation.setupActiveLinks = function() {
-            originalSetupActiveLinks.call(this);
-            EnhancedNavigation.enhanceCurrentPage();
-        };
+    // Check initial screen size and set hamburger visibility
+    const hamburger = document.querySelector('.hamburger-menu');
+    if (hamburger) {
+        if (window.innerWidth > 912) {
+            hamburger.style.display = 'none';
+        } else {
+            hamburger.style.display = 'flex';
+        }
     }
+    
+    console.log('Hamburger menu initialized for all tablets');
 });
 
 // Export for use in other files

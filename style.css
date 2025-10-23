@@ -52,17 +52,64 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
 .logo {
-    color: var(--text);
-    font-family: "Cinzel", serif;
+  
+  color: #dad8d2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Cinzel", serif;
     letter-spacing: 2px;
-    font-size: 1.5rem;
-    font-weight: 600;
+  font-weight: 600;
+  
+  position: relative;
+  overflow: hidden;
+   font-size: 1.5rem;
 }
 
-.logo span {
+/* Full Logo (visible on large screens) */
+.full-logo {
+  font-size: 1.4rem;
+  display: inline-block;
+  transition: opacity 0.3s ease;
+}
+
+/* Short Logo (EE) hidden by default */
+.short-logo {
+  display: none;
+  font-size: 1.8rem;
+  font-weight: 800;
+ 
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+  letter-spacing: 3px;
+  transition: all 0.4s ease;
+}
+
+/* Switch at 415px and below */
+@media screen and (max-width: 415px) {
+  .full-logo {
+    display: none !important;
+  }
+  .short-logo {
+    display: inline-block !important;
+  }
+}
+
+/* Optional hover effect for luxury look */
+.short-logo:hover {
+  color: #f5d76e;
+  transform: scale(1.1);
+  text-shadow: 0 0 12px rgba(245, 215, 110, 0.6);
+}
+.short-logo span{
     color: var(--gold);
+    font-size: 1.5rem;
+}
+
+
+.full-logo span{
+    color: var(--gold);
+
 }
 
 .nav-links {
